@@ -17,7 +17,11 @@
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
-            "extensions": ["ms-python.black-formatter"]
+            "extensions": [
+                "ms-python.black-formatter",
+                "inferrinizzard.prettier-sql-vscode",
+                "esbenp.prettier-vscode"
+            ]
         }
     }
 
