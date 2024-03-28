@@ -20,7 +20,8 @@
             "extensions": [
                 "ms-python.black-formatter",
                 "inferrinizzard.prettier-sql-vscode",
-                "esbenp.prettier-vscode"
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
             ]
         }
     }
