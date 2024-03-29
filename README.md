@@ -13,3 +13,5 @@ flask --app flaskr --debug run
 ```sh
 flask --app flaskr init-db
 ```
+
+- http://127.0.0.1:5000/
