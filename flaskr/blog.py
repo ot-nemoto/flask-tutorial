@@ -7,6 +7,7 @@ from flaskr.db import get_db
 bp = Blueprint("blog", __name__)
 
 
+# インデックス
 @bp.route("/")
 def index():
     db = get_db()
@@ -18,6 +19,7 @@ def index():
     return render_template("blog/index.html", posts=posts)
 
 
+# 作成
 @bp.route("/create", methods=("GET", "POST"))
 @login_required
 def create():
@@ -43,6 +45,7 @@ def create():
     return render_template("blog/create.html")
 
 
+# 更新
 @bp.route("/<int:id>/update", methods=("GET", "POST"))
 @login_required
 def update(id):
@@ -69,6 +72,7 @@ def update(id):
     return render_template("blog/update.html", post=post)
 
 
+# 消去
 @bp.route("/<int:id>/delete", methods=("POST",))
 @login_required
 def delete(id):
@@ -79,6 +83,7 @@ def delete(id):
     return redirect(url_for("blog.index"))
 
 
+# ログインしているユーザと作者が一致しているかチェック
 def get_post(id, check_author=True):
     post = (
         get_db()
