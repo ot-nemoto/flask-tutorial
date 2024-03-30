@@ -2,16 +2,48 @@
 
 ## Commands
 
-### アプリケーションの実行
-
-```sh
-flask --app flaskr --debug run
-```
-
 ### データベースファイルの初期化
 
 ```sh
 flask --app flaskr init-db
 ```
 
-- http://127.0.0.1:5000/
+### アプリケーションの実行
+
+```sh
+flask --app flaskr --debug run
+```
+
+*http://127.0.0.1:5000/*
+
+### テストの実行
+
+```sh
+pytest -v
+```
+
+カバレッジ（網羅率）を測定
+
+```sh
+coverage run -m pytest
+```
+
+カバレッジリポート
+
+```sh
+coverage report
+  # Name                 Stmts   Miss Branch BrPart  Cover
+  # ------------------------------------------------------
+  # flaskr/__init__.py      23      0      4      0   100%
+  # flaskr/auth.py          60      0     30      0   100%
+  # flaskr/blog.py          58      0     36      0   100%
+  # flaskr/db.py            23      0      8      0   100%
+  # ------------------------------------------------------
+  # TOTAL                  164      0     78      0   100%
+```
+
+HTMLでカバレッジリポートを出力
+
+```sh
+coverage html
+```
