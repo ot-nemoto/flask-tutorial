@@ -5,6 +5,10 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "prettier.tabWidth": 4
     },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.tabWidth": 4
+    },
     "[sql]": {
         "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
     },
