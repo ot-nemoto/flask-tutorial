@@ -48,13 +48,13 @@ HTMLでカバレッジリポートを出力
 coverage html
 ```
 
-## ビルド
+### ビルド
 
 ```sh
 python setup.py bdist_wheel
 ```
 
-## ビルドしたファイルをインストール
+## 本番環境への展開
 
 インストール
 
