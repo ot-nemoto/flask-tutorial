@@ -47,3 +47,43 @@ HTMLでカバレッジリポートを出力
 ```sh
 coverage html
 ```
+
+## ビルド
+
+```sh
+python setup.py bdist_wheel
+```
+
+## ビルドしたファイルをインストール
+
+インストール
+
+```sh
+pip install flaskr-1.0.0-py3-none-any.whl
+```
+
+データベースを作成
+
+```sh
+flask --app flaskr init-db
+```
+
+秘密鍵の設定
+
+```sh
+cat << EOT | tee /home/vscode/.local/var/flaskr-instance/config.py
+SECRET_KEY = '$(python -c 'import secrets; print(secrets.token_hex())')'
+EOT
+```
+
+実行
+
+```sh
+pip install waitress
+```
+
+```sh
+waitress-serve --call 'flaskr:create_app'
+```
+
+*http://0.0.0.0:8080*
