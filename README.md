@@ -54,6 +54,24 @@ coverage html
 python setup.py bdist_wheel
 ```
 
+### アプリケーションのルート一覧
+
+```sh
+flask --app flaskr routes
+  # Endpoint       Methods    Rule
+  # -------------  ---------  -----------------------
+  # auth.login     GET, POST  /auth/login
+  # auth.logout    GET        /auth/logout
+  # auth.register  GET, POST  /auth/register
+  # blog.create    GET, POST  /create
+  # blog.delete    POST       /<int:id>/delete
+  # blog.index     GET        /
+  # blog.update    GET, POST  /<int:id>/update
+  # hello          GET        /hello
+  # index          GET        /
+  # static         GET        /static/<path:filename>
+```
+
 ## 本番環境への展開
 
 インストール
