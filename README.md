@@ -65,6 +65,7 @@ flask --app flaskr routes
   # auth.register  GET, POST  /auth/register
   # blog.create    GET, POST  /create
   # blog.delete    POST       /<int:id>/delete
+  # blog.detail    GET        /<int:id>
   # blog.index     GET        /
   # blog.update    GET, POST  /<int:id>/update
   # hello          GET        /hello
