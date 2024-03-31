@@ -19,6 +19,8 @@ flask --app flaskr --debug run
 ### テストの実行
 
 ```sh
+pip install -e .
+
 pytest -v
 ```
 
