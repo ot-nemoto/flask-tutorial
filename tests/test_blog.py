@@ -79,6 +79,20 @@ def test_update(client, auth, app):
 
 
 @pytest.mark.parametrize(
+    ("path", "status_code"),
+    (
+        ("/1", 200),
+        ("/2", 404),
+        ("/test", 404),
+    ),
+)
+def test_detail(client, auth, path, status_code):
+    auth.login()
+    response = client.get(path)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
     "path",
     (
         "/create",

@@ -35,12 +35,16 @@ def create():
             flash(error)
         else:
             db = get_db()
-            db.execute(
+            cursor = db.cursor()
+            cursor.execute(
                 "INSERT INTO post (title, body, author_id)" " VALUES (?, ?, ?)",
                 (title, body, g.user["id"]),
             )
             db.commit()
-            return redirect(url_for("blog.index"))
+            id = cursor.lastrowid
+            cursor.close()
+
+            return redirect(url_for("blog.detail", id=id))
 
     return render_template("blog/create.html")
 
@@ -67,7 +71,7 @@ def update(id):
                 "UPDATE post SET title = ?, body = ?" " WHERE id = ?", (title, body, id)
             )
             db.commit()
-            return redirect(url_for("blog.index"))
+            return redirect(url_for("blog.detail", id=id))
 
     return render_template("blog/update.html", post=post)
 
@@ -103,3 +107,21 @@ def get_post(id, check_author=True):
         abort(403)
 
     return post
+
+
+# ページ表示
+@bp.route("/<int:id>")
+def detail(id):
+    db = get_db()
+    post = db.execute(
+        "SELECT p.id, p.title, p.body, p.created, p.author_id, u.username"
+        " FROM post p JOIN user u ON p.author_id = u.id"
+        " WHERE p.id = ?"
+        " ORDER BY p.created DESC",
+        (id,),
+    ).fetchone()
+
+    if post is None:
+        abort(404, f"Post id {id} doesn't exist.")
+
+    return render_template("blog/detail.html", post=post)

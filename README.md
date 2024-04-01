@@ -19,6 +19,8 @@ flask --app flaskr --debug run
 ### テストの実行
 
 ```sh
+pip install -e .
+
 pytest -v
 ```
 
@@ -65,6 +67,7 @@ flask --app flaskr routes
   # auth.register  GET, POST  /auth/register
   # blog.create    GET, POST  /create
   # blog.delete    POST       /<int:id>/delete
+  # blog.detail    GET        /<int:id>
   # blog.index     GET        /
   # blog.update    GET, POST  /<int:id>/update
   # hello          GET        /hello
@@ -77,7 +80,7 @@ flask --app flaskr routes
 インストール
 
 ```sh
-pip install flaskr-1.0.0-py3-none-any.whl
+pip install flaskr-${version}-py3-none-any.whl
 ```
 
 データベースを作成

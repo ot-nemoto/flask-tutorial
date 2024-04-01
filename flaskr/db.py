@@ -1,7 +1,16 @@
+import datetime
 import sqlite3
 
 import click
 from flask import current_app, g
+
+
+# https://docs.python.org/ja/dev/library/sqlite3.html#sqlite3.register_converter
+def convert_timestamp(val):
+    return datetime.datetime.strptime(val.decode("utf8"), "%Y-%m-%d %H:%M:%S")
+
+
+sqlite3.register_converter("timestamp", convert_timestamp)
 
 
 def get_db():
