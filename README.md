@@ -80,7 +80,7 @@ flask --app flaskr routes
 インストール
 
 ```sh
-pip install flaskr-1.0.0-py3-none-any.whl
+pip install flaskr-${version}-py3-none-any.whl
 ```
 
 データベースを作成
