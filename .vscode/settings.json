@@ -12,7 +12,9 @@
     "[sql]": {
         "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
     },
-    "Prettier-SQL.expressionWidth": 120,
+    "Prettier-SQL.expressionWidth": 80,
     "Prettier-SQL.keywordCase": "upper",
+    "Prettier-SQL.newlineBeforeSemicolon": true,
+    "Prettier-SQL.SQLFlavourOverride": "sqlite",
     "remote.autoForwardPortsFallback": 0
 }
