@@ -13,7 +13,7 @@ def test_index(client, auth):
     assert b"Log Out" in response.data
     assert b"test title" in response.data
     assert f"投稿者 test".encode("utf-8") in response.data
-    now = (datetime.datetime.now() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d")
+    now = datetime.datetime.now().strftime("%Y-%m-%d")
     assert f"最終更新日 {now}".encode("utf-8") in response.data
     assert f"投稿日 2018-01-01".encode("utf-8") in response.data
     assert b"test\nbody" in response.data
