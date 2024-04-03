@@ -1,3 +1,4 @@
+import datetime
 import pytest
 from flaskr.db import get_db
 
@@ -11,7 +12,10 @@ def test_index(client, auth):
     response = client.get("/")
     assert b"Log Out" in response.data
     assert b"test title" in response.data
-    assert b"by test on 2018-01-01" in response.data
+    assert f"投稿者 test".encode("utf-8") in response.data
+    now = (datetime.datetime.now() + datetime.timedelta(hours=9)).strftime("%Y-%m-%d")
+    assert f"最終更新日 {now}".encode("utf-8") in response.data
+    assert f"投稿日 2018-01-01".encode("utf-8") in response.data
     assert b"test\nbody" in response.data
     assert b'href="/1/update"' in response.data
 
