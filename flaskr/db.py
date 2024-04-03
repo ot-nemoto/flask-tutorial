@@ -7,7 +7,9 @@ from flask import current_app, g
 
 # https://docs.python.org/ja/dev/library/sqlite3.html#sqlite3.register_converter
 def convert_timestamp(val):
-    return datetime.datetime.strptime(val.decode("utf8"), "%Y-%m-%d %H:%M:%S")
+    return datetime.datetime.strptime(
+        val.decode("utf8"), "%Y-%m-%d %H:%M:%S"
+    ) + datetime.timedelta(hours=9)
 
 
 sqlite3.register_converter("timestamp", convert_timestamp)
